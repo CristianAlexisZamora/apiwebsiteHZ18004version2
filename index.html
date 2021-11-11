@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<!--Datos Personales:
+	Estudiante: Cristian Alexis Hernandez Zamora
+	Carnet: HZ18004
+-->
+	<head>
+		<title>Ejemplo web api version 2</title>
+		<meta charset="utf-8"  />
+		<LINK REL=StyleSheet HREF="estilo.css" TYPE="text/css" MEDIA=screen>
+		<script src="codigo.js"></script>
+
+	</head>
+	<body >
+		<h1>Ejemplo web api Versión 2</h1>
+			<p>Nombre: Cristian Alexis Hernandez Zamora</p>
+			<p>Carnet: HZ18004</p>
+			<p><button onclick="obtenerProductos();this.style.display='none';">Obtener Productos</button></p>
+			<div id="agregar" style="display: none;">
+				<form name="agregarProducto" id="agregarProducto">
+					<div>
+						<label for="titulo">T&iacute;tulo: </label>
+						<input type="text" id="titulo" placeholder="Ingrese el titulo del producto"/>
+					
+						<label for="precio">Precio: </label>
+						<input type="number" id="precio" placeholder="Ingrese precio del producto"/>
+					</div>
+					<div class="divdescripcion">
+						<label for="descripcion">Descripci&oacute;n: </label>
+						<input type="text" id="descripcion" placeholder="Descripcion del producto"/>
+					</div>
+					<div>
+						<label for="imagen">Imagen: </label>
+						<input type="text" id="imagen" placeholder="Ingrese un link de una imagen"/>
+					
+						<label for="categoria">Categoría: </label>
+						<select name="categoria" id="categoria">
+							<option value="caballeros">Caballeros</option>
+							<option value="dama">Dama</option>
+							<option value="joyeria">Joyeria</option>
+							<option value="electronicos">Electronicos</option>
+						</select>
+					</div>
+					<div>
+						<input type="button" class="boton" value="Guardar" onclick="incluirProducto()">
+					</div>
+				</form>
+			</div>
+			<div id="listado" style="display:none;">
+				<form name="filtroprods" id="filtroprods">
+					Categorías disponibles:
+					<input type="checkbox" id="c1" value="c1" checked>Electronicos
+					<input type="checkbox" id="c2" value="c2" checked>Joyería
+					<input type="checkbox" id="c3" value="c3" checked>Ropa Caballero
+					<input type="checkbox" id="c4" value="c4" checked>Ropa Dama
+					<ol>
+						Funciones disponibles:
+						<li>Click en la imagen para Acercamiento</li>
+						<li>Click en precio para ordenar Ascendentemente o Descendentemente</li>
+					</ol>
+					<table id="tabla" border="1">
+						<thead>
+							<tr><th>ID</th><th>FOTO</th><th  id="price">PRECIO</th>
+							<th>TITULO</th><th>DESCRIPCIÓN</th><th>CATEGORIA</th></tr>
+						</thead>
+						<tbody id="tbody"></tbody>
+					</table>
+				</form>
+			</div>
+			<div id="eliminar" style="display: none;">
+				<h3>Eliminar producto</h3>
+				<form>
+					<label for="deleteid">Ingrese id:</label>
+					<input type="number" id="deleteid" min="1" placeholder="Id Producto a eliminar"/>
+					<input type="button" class="boton" value="Eliminar" onclick="deleteProducto()"/>
+				</form>
+			</div>
+	</body>
+</html>
